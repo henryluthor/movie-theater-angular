@@ -1,0 +1,12 @@
+<!-- <p>billboard works!</p> -->
+
+<div>
+  <div *ngFor="let movie of movies | async">
+    <img
+      class="billboard-poster"
+      src="assets/images/the-fly-movie-poster MV5BODcxMGMwOGEtMDUxMi00MzE5LTg4YTYtYjk1YjA4MzQxNTNlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"
+      alt="movie poster"
+    />
+    <p>{{ movie.title }}</p>
+  </div>
+</div>
