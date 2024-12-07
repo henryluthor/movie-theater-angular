@@ -1,13 +1,19 @@
 <!-- <p>app.component works!</p> -->
+
+<app-header></app-header>
+
 <nav>
   <ul>
     <li>
-      <a href="moviepage1/">movie1</a>
+      <a routerLink="/moviepage1">movie1</a>
       |
-      <a href="moviepage2/">movie2</a>
+      <a routerLink="/moviepage2">movie2</a>
+      |
+      <a routerLink="/movieSelected">movie selected</a>
     </li>
   </ul>
 </nav>
-<app-header></app-header>
-<app-billboard></app-billboard>
+
+<router-outlet></router-outlet>
+
 <app-footer></app-footer>

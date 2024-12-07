@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { Moviepage1Component } from './moviepage1/moviepage1.component';
 import { Moviepage2Component } from './moviepage2/moviepage2.component';
 
+import { provideRouter, RouterLink, RouterOutlet } from '@angular/router';
+import { routes } from './app.routes';
+import { MovieSelectedComponent } from './movie-selected/movie-selected.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,15 +21,21 @@ import { Moviepage2Component } from './moviepage2/moviepage2.component';
     FooterComponent,
     HeaderComponent,
     Moviepage1Component,
-    Moviepage2Component
+    Moviepage2Component,
+    MovieSelectedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+
+    RouterLink,
+    RouterOutlet
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+
+    provideRouter(routes)
   ],
   bootstrap: [AppComponent]
 })
