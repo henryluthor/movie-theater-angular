@@ -1,4 +1,7 @@
 export interface MovieProperties
 {
-  title: string;
+  title: string,
+  year?: number,
+  runtime?: number,
+  genre?: string
 }

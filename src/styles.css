@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+.billboard-poster{
+  cursor: pointer;
+  height: 300px;
+  transition: transform .2s;
+}
+
+.billboard-poster:hover{
+  transform: scale(1.1);
+}
