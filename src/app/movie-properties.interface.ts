@@ -3,5 +3,6 @@ export interface MovieProperties
   title: string,
   year?: number,
   runtime?: number,
-  genre?: string
+  genre?: string,
+  imdbId?: string
 }

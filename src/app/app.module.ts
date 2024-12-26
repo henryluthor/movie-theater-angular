@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Moviepage1Component } from './moviepage1/moviepage1.component';
 import { Moviepage2Component } from './moviepage2/moviepage2.component';
 
-import { provideRouter, RouterLink, RouterOutlet } from '@angular/router';
+import { provideRouter, RouterLink, RouterOutlet, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { MovieSelectedComponent } from './movie-selected/movie-selected.component';
 
@@ -35,7 +35,7 @@ import { MovieSelectedComponent } from './movie-selected/movie-selected.componen
   providers: [
     provideClientHydration(),
 
-    provideRouter(routes)
+    provideRouter(routes, withComponentInputBinding())
   ],
   bootstrap: [AppComponent]
 })

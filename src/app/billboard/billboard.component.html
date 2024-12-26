@@ -2,8 +2,8 @@
 
 <div>
   <div *ngFor="let movie of movies | async">
-    <p>ID: {{ movie.id }}</p>
-    <a id={{movie.id}} href="www.google.com">Movie id: {{movie.id}}</a>
+    <!-- <p>ID: {{ movie.id }}</p> -->
+    <a [routerLink]="['/movieSelected', movie.id]">Hacer clic aqui para ir a movie con id {{movie.id}}</a>
     <img
       class="billboard-poster"
       src="assets/images/the-fly-movie-poster MV5BODcxMGMwOGEtMDUxMi00MzE5LTg4YTYtYjk1YjA4MzQxNTNlXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_.jpg"

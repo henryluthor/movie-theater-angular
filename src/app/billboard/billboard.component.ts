@@ -15,9 +15,6 @@ export class BillboardComponent implements OnInit {
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
     this.movies = this.getMovies();
-    console.log("In ngOnInit");
-    console.log("this.movies:");
-    console.log(this.movies);
   }
 
   movies: any;
@@ -26,14 +23,6 @@ export class BillboardComponent implements OnInit {
 
   getMovies()
   {
-    console.log("function getMovies");
-    var x;
-    this.httpClient.get(this.movieApiURL).subscribe(resp => {
-      x = resp;
-      console.log("x");
-      console.log(x);
-    });
-
     return this.httpClient.get(this.movieApiURL);
   }
 

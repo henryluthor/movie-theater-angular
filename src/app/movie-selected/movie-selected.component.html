@@ -10,6 +10,7 @@
 <div *ngIf="movieSelected.runtime" class="FeatureDetailMovie">{{movieSelected.runtime}} min</div>
 <div *ngIf="movieSelected.genre" class="FeatureDetailMovie">{{movieSelected.genre}}</div>
 
-<img class="billboard-poster" src={{imgSrcForPosterFromTMDB}} alt="movie poster">
+<img *ngIf="movieSelected.imdbId; else elseBlock" class="billboard-poster" src={{imgSrcForPosterFromTMDB}} alt="movie poster">
+<ng-template #elseBlock>NO POSTER FOUND</ng-template>
 
 

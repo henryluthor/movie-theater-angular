@@ -12,7 +12,7 @@ export const routes: Routes = [
     path: 'moviepage2', component: Moviepage2Component
   },
   {
-    path: 'movieSelected', component: MovieSelectedComponent
+    path: 'movieSelected/:id', component: MovieSelectedComponent
   },
   {
     path: '', component: BillboardComponent
