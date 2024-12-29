@@ -6,11 +6,16 @@
 <!-- next line with only async returns [object Object], with async and json renders the json as a string -->
 <!-- <div *ngIf="movieInfo">{{(movieInfo | async | json)}}</div> -->
 
-<div class="MovieDetailTitle">{{movieSelected.title}}</div>
-<div *ngIf="movieSelected.runtime" class="FeatureDetailMovie">{{movieSelected.runtime}} min</div>
-<div *ngIf="movieSelected.genre" class="FeatureDetailMovie">{{movieSelected.genre}}</div>
+<div *ngIf="movieSelected.title; else movieNotFoundBlock">
+  <div class="MovieDetailTitle">{{movieSelected.title}}</div>
+  <div *ngIf="movieSelected.runtime" class="FeatureDetailMovie">{{movieSelected.runtime}} min</div>
+  <div *ngIf="movieSelected.genre" class="FeatureDetailMovie">{{movieSelected.genre}}</div>
 
-<img *ngIf="movieSelected.imdbId; else elseBlock" class="billboard-poster" src={{imgSrcForPosterFromTMDB}} alt="movie poster">
-<ng-template #elseBlock>NO POSTER FOUND</ng-template>
+  <img *ngIf="movieSelected.imdbId; else elseBlock" class="billboard-poster" src={{imgSrcForPosterFromTMDB}} alt="movie poster">
+  <ng-template #elseBlock>NO POSTER FOUND</ng-template>
+</div>
+
+<ng-template #movieNotFoundBlock>{{this.movieApiResponseMessage}}</ng-template>
+
 
 
