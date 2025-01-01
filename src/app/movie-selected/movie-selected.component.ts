@@ -27,6 +27,7 @@ export class MovieSelectedComponent implements OnInit {
       if(data != null)
       {
         //set movieSelected properties
+        this.movieSelected.id = data.id;
         this.movieSelected.title = data.title;
         this.movieSelected.runtime = data.runtime;
         this.movieSelected.genre = data.genre;
@@ -41,7 +42,7 @@ export class MovieSelectedComponent implements OnInit {
 
             if (respJson.movie_results.length > 0)
             {
-              //set image source por selected movie poster
+              //set image source for selected movie poster
               var movieResults = respJson.movie_results[0];
               var posterPath = movieResults.poster_path;
               // this.movieSelectedPosterPathFromTMDBApi = posterPath;
