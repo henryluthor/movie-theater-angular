@@ -13,18 +13,26 @@ export class BillboardComponent implements OnInit {
 
   constructor(private httpClient: HttpClient, private mySharedService: MySharedService){}
 
-  //next line to be deprecated
-  movies: any;
-
   moviesNew: MovieProperties[] = [];
   imgSrcForPosterFromTMDB = companyData.imgSrcForPosterFromTMDB;
+  showSpinner: boolean = false;
+  fetchResponse: string = "";
+
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
+    // console.log("entro al ngOnInit");
 
-    // this.movies = this.getMovies();
+    this.showSpinner = true;
+
+    this.fetchMovies().then(resp => {
+      this.fetchResponse = resp;
+      this.showSpinner = false;
+    });
+
 
     this.getMovies().subscribe((resp) => {
+
       var respJsonString = JSON.stringify(resp);
       var respJson = JSON.parse(respJsonString);
 
@@ -64,17 +72,39 @@ export class BillboardComponent implements OnInit {
         this.moviesNew.push(movieCurrent);
       }
 
-    })
+    });
+
   }
 
 
-  //next line to be deprecated
-  readonly movieApiURL = 'https://localhost:7046/api/Movies';
-
   getMovies()
   {
-    // return this.httpClient.get(this.movieApiURL);
+    // console.log("entro al getMovies");
     return this.httpClient.get(companyData.API_URL);
+  }
+
+  async fetchMovies(): Promise<string>
+  {
+    // This function makes fetch to the API, if successful returns empty string, if failed returns error message.
+
+    // console.log("entro al fetchMovies");
+    var response = "";
+    try
+    {
+      var responseFromFetch = await fetch(companyData.API_URL);
+      if(responseFromFetch.ok)
+      {
+        // console.log("Se obtuvo respuesta ok del fetch.");
+        // console.log("responseFromFetch:");
+        // console.log(responseFromFetch);
+      }
+    }
+    catch(error: any)
+    {
+      response = "An error has occurred. No response from API. " + error.message;
+    }
+
+    return response;
   }
 
 }

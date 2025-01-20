@@ -1,23 +1,17 @@
 <!-- <p>billboard works!</p> -->
 
-<div>
+<div class="container">
+
+  <div style="background-color: red;" *ngIf="showSpinner">LOADIN MOVIES...</div>
+  <div>{{fetchResponse}}</div>
 
   <div *ngFor="let movieNew of moviesNew">
     <a [routerLink]="['/movieSelected', movieNew.id]">{{movieNew.title}}</a>
     <img *ngIf="movieNew.posterPath; else noPosterFoundBlock" class="billboard-poster" [src]="imgSrcForPosterFromTMDB + '/' + movieNew.posterPath" alt="movie poster" />
 
     <ng-template #noPosterFoundBlock>
-      <img class="poster" src="assets/images/default_poster.jpg" alt="movie poster" />
+      <img class="billboard-poster" src="assets/images/default_poster.jpg" alt="movie poster" />
     </ng-template>
   </div>
 
-  <!-- next div to be deprecated -->
-  <div *ngFor="let movie of movies | async">
-    <a [routerLink]="['/movieSelected', movie.id]">{{movie.title}}</a>
-    <img
-      class="billboard-poster"
-      src="assets/images/default_poster.jpg"
-      alt="movie poster"
-    />
-  </div>
 </div>
