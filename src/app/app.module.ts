@@ -13,6 +13,7 @@ import { Moviepage2Component } from './moviepage2/moviepage2.component';
 import { provideRouter, RouterLink, RouterOutlet, withComponentInputBinding } from '@angular/router';
 import { routes } from './app.routes';
 import { MovieSelectedComponent } from './movie-selected/movie-selected.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MovieSelectedComponent } from './movie-selected/movie-selected.componen
     HeaderComponent,
     Moviepage1Component,
     Moviepage2Component,
-    MovieSelectedComponent
+    MovieSelectedComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

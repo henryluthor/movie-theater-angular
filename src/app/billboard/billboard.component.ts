@@ -21,7 +21,6 @@ export class BillboardComponent implements OnInit {
 
   ngOnInit(): void {
     // throw new Error('Method not implemented.');
-    // console.log("entro al ngOnInit");
 
     this.showSpinner = true;
 
@@ -45,7 +44,7 @@ export class BillboardComponent implements OnInit {
           year: respJson[i].year,
           runtime: respJson[i].runtime,
           genre: respJson[i].genre,
-          imdbId: respJson[i].imdbId
+          imdbId: respJson[i].imdbid
         };
 
         if(movieCurrent.imdbId != null)
@@ -79,7 +78,6 @@ export class BillboardComponent implements OnInit {
 
   getMovies()
   {
-    // console.log("entro al getMovies");
     return this.httpClient.get(companyData.API_URL);
   }
 
@@ -87,14 +85,12 @@ export class BillboardComponent implements OnInit {
   {
     // This function makes fetch to the API, if successful returns empty string, if failed returns error message.
 
-    // console.log("entro al fetchMovies");
     var response = "";
     try
     {
       var responseFromFetch = await fetch(companyData.API_URL);
       if(responseFromFetch.ok)
       {
-        // console.log("Se obtuvo respuesta ok del fetch.");
         // console.log("responseFromFetch:");
         // console.log(responseFromFetch);
       }

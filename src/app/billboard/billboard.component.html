@@ -15,7 +15,7 @@
 
   <div>{{fetchResponse}}</div>
 
-  <div *ngFor="let movieNew of moviesNew">
+  <div *ngFor="let movieNew of moviesNew" class="col-xs-6 col-sm-4 col-md-3 movie">
     <a [routerLink]="['/movieSelected', movieNew.id]">{{movieNew.title}}</a>
     <img *ngIf="movieNew.posterPath; else noPosterFoundBlock" class="billboard-poster" [src]="imgSrcForPosterFromTMDB + movieNew.posterPath" alt="movie poster" />
 
