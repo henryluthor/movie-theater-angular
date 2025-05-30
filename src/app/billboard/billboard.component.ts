@@ -49,20 +49,20 @@ export class BillboardComponent implements OnInit {
 
         if(movieCurrent.imdbId != null)
         {
-          //look for poster
+          //Look for poster
           this.mySharedService.getTMDBFindData(movieCurrent.imdbId).subscribe((respTMDB) => {
             var respTMDBString = JSON.stringify(respTMDB);
             var respTMDBJson = JSON.parse(respTMDBString);
 
             if(respTMDBJson.movie_results.length > 0)
             {
-              //set image source for movie poster
+              //Set image source for movie poster
               var movieResults = respTMDBJson.movie_results[0];
               this.moviesNew[i].posterPath = movieResults.poster_path;
             }
             else
             {
-              //set empty string to movieCurrent.imdbId to show message NO POSTER FOUND
+              //Set empty string to movieCurrent.imdbId to show message NO POSTER FOUND
               this.moviesNew[i].imdbId = "";
             }
           })
@@ -97,7 +97,7 @@ export class BillboardComponent implements OnInit {
     }
     catch(error: any)
     {
-      response = "An error has occurred. No response from API. " + error.message;
+      response = "An error occurred while fetching movies. " + error.message;
     }
 
     return response;
